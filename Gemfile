@@ -3,6 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+#Flexible authentication solution for Rails with Warden.
+gem 'devise'
+#Translations for the devise gem
+gem 'devise-i18n'
+#Internationalization (i18n) library for Ruby
+gem 'rails-i18n'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use postgresql as the database for Active Record
