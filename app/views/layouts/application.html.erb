@@ -2,15 +2,90 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>SalesManagement</title>
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>
+      Sales Management
+    </title>        
+        <!--     Fonts and icons     -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wrapper ">
+      <div class="sidebar" data-color="purple" data-background-color="white">
+        <!--
+          Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+          Tip 2: you can also add an image using data-image tag
+        -->
+      <div class="logo">
+        <h3>Cecomil</h3>
+        <h3>Sales Management</h3>
+      </div>
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+              <li>
+                <%= link_to home_index_path, class:"nav-link" do  %> 
+                  <i class="material-icons">dashboard</i>
+                  <p>Dashboard</p>
+                <%end%>
+              </li>
+              <li>
+                <%= link_to home_vendedores_path, class:"nav-link" do  %> 
+                  <i class="material-icons">person</i>
+                  <p>Vendedores</p>
+                <%end%>
+              </li>
+              <!-- your sidebar here -->
+            </ul>
+        </div>
+      </div>
+
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+                <div class="container-fluid">
+                    <h2></h2>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-end">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                <i class="material-icons">person</i>
+                                </a>
+                            </li>
+                        <!-- your navbar here -->
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+              <%= yield %>
+          </div>
+      </div>
+    </div>
+    <%= render 'shared/footer' %>
   </body>
 </html>
