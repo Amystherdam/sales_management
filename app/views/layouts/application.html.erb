@@ -74,9 +74,9 @@
                     <div class="collapse navbar-collapse justify-content-end">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                <i class="material-icons">person</i>
-                                </a>
+                                <%= link_to destroy_member_session_path, method: :delete, :class => "nav-link" do%>
+                                  Logout
+                                <% end %>
                             </li>
                         <!-- your navbar here -->
                         </ul>

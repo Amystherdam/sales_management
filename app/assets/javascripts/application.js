@@ -20,4 +20,3 @@
 //= require js/plugins/bootstrap-notify.js
 //= require js/material-dashboard.js
 //= require js/material-dashboard.min.js
-//= require_tree .
