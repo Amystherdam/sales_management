@@ -6,61 +6,75 @@
         De <input type="date"> até    
         <input type="date">
 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header card-header-primary">
-                    <h4 class="card-title ">O que houve nesse período</h4>
-                    <p class="card-category"> Informações de contatos comerciais</p>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class=" text-primary">
-                                <th>
-                                    Empresa
-                                </th>
-                                <th>
-                                    Valor da ação
-                                </th>
-                                <th>
-                                    Vendedor
-                                </th>
-                            </thead>
-                            <tbody>
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">O que houve nesse período</h4>
+                        <p class="card-category"> Informações de contatos comerciais</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Empresa
+                                    </th>
+                                    <th>
+                                        Faturamento Total
+                                    </th>
+                                    <th>
+                                        Vendedor
+                                    </th>
+                                    <th>
+                                        Nº Pedido
+                                    </th>
+                                    <th>
+                                        Veja
+                                    </th>
+                                </thead>
+                                <tbody>
                                     <tr>
-                                            <td>
-                                                Empresa X
-                                            </td>
-                                            <td class="text-primary">
-                                                R$36,738
-                                            </td>
-                                            <td>
-                                                Fulano
-                                            </td>
+                                        <td>
+                                            Empresa X
+                                        </td>
+                                        <td class="text-primary">
+                                            R$36,738
+                                        </td>
+                                        <td>
+                                            Fulano
+                                        </td>
+                                        <td>
+                                            0485749
+                                        </td>
+                                        <td>
+                                            <%= link_to   detalhes_path do  %> 
+                                                <p>Detalhes</p>
+                                            <%end%>
+                                        </td>
                                     </tr>
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
-                                <tr>
-                                    <td>
-                                    Empresa X
-                                    </td>
-                                    <td class="text-primary">
-                                    R$36,738
-                                    </td>
-                                    <td>
-                                    Curaçao
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                    <tr>
+                                        <td>
+                                        Empresa X
+                                        </td>
+                                        <td class="text-primary">
+                                        R$36,738
+                                        </td>
+                                        <td>
+                                        Curaçao
+                                        </td>
+                                        <td>
+                                            24563456
+                                        </td>
+                                        <td>
+                                            <%= link_to   detalhes_path do  %> 
+                                                <p>Detalhes</p>
+                                            <%end%>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

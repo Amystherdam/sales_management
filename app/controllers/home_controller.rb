@@ -7,4 +7,7 @@ class HomeController < ApplicationController
 
   def vendedores
   end
+
+  def detalhes
+  end
 end
