@@ -19,30 +19,16 @@
                         </th>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>
-                            00000700
-                            </td>
-                            <td>
-                            Fulano
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            00000800
-                            </td>
-                            <td>
-                            Ciclano
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            00000900
-                            </td>
-                            <td>
-                            Beltrano
-                            </td>
-                        </tr>
+                            <% @dados_vendedores.each do |informacoes_vendedores|%>
+                                <tr>
+                                    <td>
+                                        <%= informacoes_vendedores.seller_code%>
+                                    </td>
+                                    <td>
+                                        <%= informacoes_vendedores.seller_name%>
+                                    </td>
+                                </tr>
+                            <%end%>
                         </tbody>
                     </table>
                     </div>
@@ -78,35 +64,7 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            00000700
-                                        </td>
-                                        <td>
-                                            Fulano
-                                        </td>
-                                        <td>
-                                            20%
-                                        </td>
-                                        <td>
-                                            1.285.00
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            00000700
-                                        </td>
-                                        <td>
-                                            Fulano
-                                        </td>
-                                        <td>
-                                            20%
-                                        </td>
-                                        <td>
-                                            1.285.00
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            00000700
+                                            
                                         </td>
                                         <td>
                                             Fulano

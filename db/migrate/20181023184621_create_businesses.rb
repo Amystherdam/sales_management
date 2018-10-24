@@ -3,13 +3,13 @@ class CreateBusinesses < ActiveRecord::Migration[5.2]
     create_table :businesses do |t|
       t.integer :branch
       t.integer :service_number
-      t.integer :sellers_code
-      t.string :service_name
+      t.integer :seller_code
+      t.string :seller_name
       t.integer :client_code
       t.string :client_name
       t.integer :product_code
       t.string :product_description
-      t.string :payment_terms
+      t.string :payment_type
       t.integer :request_number
       t.integer :product_quantity
       t.float :product_value

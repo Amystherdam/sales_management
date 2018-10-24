@@ -21,7 +21,7 @@
                                         Empresa
                                     </th>
                                     <th>
-                                        Faturamento Total
+                                        Possível Entrada
                                     </th>
                                     <th>
                                         Vendedor
@@ -34,44 +34,27 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            Empresa X
-                                        </td>
-                                        <td class="text-primary">
-                                            R$36,738
-                                        </td>
-                                        <td>
-                                            Fulano
-                                        </td>
-                                        <td>
-                                            0485749
-                                        </td>
-                                        <td>
-                                            <%= link_to   detalhes_path do  %> 
-                                                <p>Detalhes</p>
-                                            <%end%>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                        Empresa X
-                                        </td>
-                                        <td class="text-primary">
-                                        R$36,738
-                                        </td>
-                                        <td>
-                                        Curaçao
-                                        </td>
-                                        <td>
-                                            24563456
-                                        </td>
-                                        <td>
-                                            <%= link_to   detalhes_path do  %> 
-                                                <p>Detalhes</p>
-                                            <%end%>
-                                        </td>
-                                    </tr>
+                                    <% @dados_venda.each do |dados|%>
+                                        <tr>
+                                            <td>
+                                                <%= dados.client_name %>
+                                            </td>
+                                            <td class="text-primary">
+                                                R$<%= dados.amount %>
+                                            </td>
+                                            <td>
+                                                <%= dados.seller_name %>
+                                            </td>
+                                            <td>
+                                                <%= dados.service_number %>
+                                            </td>
+                                            <td>
+                                                <%= link_to   detalhes_path do  %> 
+                                                    <p>Detalhes</p>
+                                                <%end%>
+                                            </td>
+                                        </tr>
+                                    <%end%>
                                 </tbody>
                             </table>
                         </div>
