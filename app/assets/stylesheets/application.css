@@ -13,6 +13,3 @@
  *= require_self
  *= require css/material-dashboard.css
  */
-
- #calendar_title {
-    border-left: 200px; }

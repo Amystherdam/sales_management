@@ -1,10 +1,5 @@
 <div class="content">
     <div class="container-fluid">
-        <!-- your content here -->
-        <h3>Consultas de atendimento e faturamento</h3>
-        <h4 id="calendar_title">Espaço temporal da consulta</h4>
-        De <%= select_date(Time.now) %>
-        até <%= select_date(Time.now) %>    
 
         <div class="row">
             <div class="col-md-12">
@@ -34,7 +29,7 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <% @dados_venda.each do |dados|%>
+                                    <% @buscar.each do |dados|%>
                                         <tr>
                                             <td>
                                                 <%= dados.client_name %>
