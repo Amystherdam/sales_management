@@ -17,7 +17,7 @@ class HomeController < ApplicationController
   end
 
   def resultado
-    @buscar = Business.where("date_service >= ? and date_service <= ?", "2018-10-01", "2018-10-10")
     @dados_venda = Business.all 
-  end
+    @buscar = Business.where("date_service >= ? and date_service <= ?", params[:date_initial], params[:date_end])
+  end  
 end

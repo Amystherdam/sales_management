@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'vendedores', to: 'home#vendedores'
   get 'detalhes', to: 'home#detalhes'
   get 'buscarData', to: 'home#buscarData'
-  get 'resultado', to: 'home#resultado'
+  #get 'resultado', to: 'home#resultado'
+  get 'resultado' => "home#resultado", as: "resultado"  
   devise_for :members
   
   root 'home#index'

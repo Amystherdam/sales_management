@@ -3,9 +3,8 @@
         <!-- your content here -->
         <h3>Consultas de atendimento e faturamento</h3>
         <h4 id="calendar_title">Espaço temporal da consulta</h4>
-        De <%= select_date(Time.now) %>
-        até <%= select_date(Time.now) %>    
-
+            
+        
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -13,51 +12,35 @@
                         <h4 class="card-title ">O que houve nesse período</h4>
                         <p class="card-category"> Informações de contatos comerciais</p>
                     </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class=" text-primary">
-                                    <th>
-                                        Empresa
-                                    </th>
-                                    <th>
-                                        Possível Entrada
-                                    </th>
-                                    <th>
-                                        Vendedor
-                                    </th>
-                                    <th>
-                                        Nº Pedido
-                                    </th>
-                                    <th>
-                                        Veja
-                                    </th>
-                                </thead>
-                                <tbody>
-                                    <% @dados_venda.each do |dados|%>
-                                        <tr>
-                                            <td>
-                                                <%= dados.client_name %>
-                                            </td>
-                                            <td class="text-primary">
-                                                R$<%= dados.amount %>
-                                            </td>
-                                            <td>
-                                                <%= dados.seller_name %>
-                                            </td>
-                                            <td>
-                                                <%= dados.service_number %>
-                                            </td>
-                                            <td>
-                                                <%= link_to   detalhes_path do  %> 
-                                                    <p>Detalhes</p>
-                                                <%end%>
-                                            </td>
-                                        </tr>
-                                    <%end%>
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="card-content">
+                        <%= form_with method: :get, url: resultado_path, local: true do |f| %>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                       <label for="dtp_input1" class="control-label">Data inicial</label>
+                                        <div class="input-group date form_datetime" data-date-format="dd mm yyyy - hh:ii" data-link-field="dtp_input1">
+                                            <%= f.datetime_field :date_initial, type: :datetime, label: false, class: "form-control"%>
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                                        </div>
+                                        <input type="hidden" id="dtp_input1" value="" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                       <label for="dtp_input2" class="control-label">Data final</label>
+                                        <div class="input-group date form_datetime" data-date-format="dd mm yyyy - hh:ii" data-link-field="dtp_input2">
+                                            <%= f.datetime_field :date_end, type: :datetime, label: false, class: "form-control"%>
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                                        </div>
+                                        <input type="hidden" id="dtp_input2" value="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary pull-right">INICIAR</button>
+                            <div class="clearfix"></div>
+                        <% end %>
                     </div>
                 </div>
             </div>

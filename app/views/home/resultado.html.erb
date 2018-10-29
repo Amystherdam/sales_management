@@ -22,26 +22,26 @@
                                         Vendedor
                                     </th>
                                     <th>
-                                        Nº Pedido
+                                        Tipo de Pagamento
                                     </th>
                                     <th>
                                         Veja
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <% @buscar.each do |dados|%>
+                                    <% @buscar.each do |dados_venda|%>
                                         <tr>
                                             <td>
-                                                <%= dados.client_name %>
+                                                <%= dados_venda.client_name %>
                                             </td>
                                             <td class="text-primary">
-                                                R$<%= dados.amount %>
+                                                R$<%= dados_venda.amount %>
                                             </td>
                                             <td>
-                                                <%= dados.seller_name %>
+                                                <%= dados_venda.seller_name %>
                                             </td>
                                             <td>
-                                                <%= dados.service_number %>
+                                                <%= dados_venda.payment_type %>
                                             </td>
                                             <td>
                                                 <%= link_to   detalhes_path do  %> 
@@ -57,5 +57,129 @@
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">Vendedores</h4>
+                        <p class="card-category">Ranking de Faturamentos</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Percentual do Total
+                                    </th>
+                                    <th>
+                                        Faturamento Obtido
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <% @buscar.each do |dados_vendedor|%>                                    
+                                        <tr>
+                                            <td>
+                                                <%= dados_vendedor.seller_code %>
+                                            </td>
+                                            <td>
+                                                <%= dados_vendedor.seller_name %>
+                                            </td>
+                                            <td>
+                                                20%
+                                            </td>
+                                            <td>
+                                                1.285.00
+                                            </td>
+                                        </tr>
+                                    <%end%>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">Vendedores</h4>
+                        <p class="card-category">Ranking de Orçamentos</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Percentual do Total
+                                    </th>
+                                    <th>
+                                        Faturamento Obtido
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            00000700
+                                        </td>
+                                        <td>
+                                            Fulano
+                                        </td>
+                                        <td>
+                                            20%
+                                        </td>
+                                        <td>
+                                            1.285.00
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            00000700
+                                        </td>
+                                        <td>
+                                            Fulano
+                                        </td>
+                                        <td>
+                                            20%
+                                        </td>
+                                        <td>
+                                            1.285.00
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            00000700
+                                        </td>
+                                        <td>
+                                            Fulano
+                                        </td>
+                                        <td>
+                                            20%
+                                        </td>
+                                        <td>
+                                            1.285.00
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
     </div>
 </div>
