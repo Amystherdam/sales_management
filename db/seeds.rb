@@ -9,7 +9,7 @@ Member.create(email: "lucas10@gmail.com", password: "123abc")
 
 Business.create([
     {branch: 1, service_number: 578567, seller_code: 456765456, seller_name: "Hershell", client_code: 1932, client_name: "Cecomil", product_code: 24313, product_description: "Computador Lenovo", payment_type: 
-    "Orcamento", request_number: 9284234, product_quantity: 3, product_value: 2000, product_discount: 0, amount: 6000, business_situation: "Em Orçamento", date_service: "2018-10-01", date_transmission_note: "2018-10-10"},
+    "Orcamento", request_number: 9284234, product_quantity: 3, product_value: 2000, product_discount: 0, amount: 7000, business_situation: "Em Orçamento", date_service: "2018-10-01", date_transmission_note: "2018-10-10"},
     
     {branch: 1, service_number: 568567, seller_code: 456765456, seller_name: "Hershell", client_code: 194, client_name: "Ibyte", product_code: 21343, product_description: "Tablet Samsung", payment_type: 
     "Debito", request_number: 924234, product_quantity: 2, product_value: 800, product_discount: 0, amount: 1600, business_situation: "Emissão Liberada", date_service: "2018-10-12", date_transmission_note: "2018-10-14"},

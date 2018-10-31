@@ -83,7 +83,7 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <% @buscar.each do |dados_vendedor|%>                                    
+                                    <% @vendedores.each do |dados_vendedor|%>                                    
                                         <tr>
                                             <td>
                                                 <%= dados_vendedor.seller_code %>
@@ -95,7 +95,7 @@
                                                 20%
                                             </td>
                                             <td>
-                                                1.285.00
+                                                <%= seller_amount(dados_vendedor, @buscar)%>
                                             </td>
                                         </tr>
                                     <%end%>

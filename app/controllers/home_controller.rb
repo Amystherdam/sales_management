@@ -19,5 +19,7 @@ class HomeController < ApplicationController
   def resultado
     @dados_venda = Business.all 
     @buscar = Business.where("date_service >= ? and date_service <= ?", params[:date_initial], params[:date_end])
-  end  
+    @vendedores = @buscar.select("distinct on (seller_code) *")
+  end 
+
 end
