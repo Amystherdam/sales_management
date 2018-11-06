@@ -83,19 +83,19 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <% @vendedores.each do |dados_vendedor|%>                                    
+                                    <%@receptor_ordenador.each do |key, value|%>                                    
                                         <tr>
                                             <td>
-                                                <%= dados_vendedor.seller_code %>
+                                                
                                             </td>
                                             <td>
-                                                <%= dados_vendedor.seller_name %>
+                                                <%= "#{key}" %>
                                             </td>
                                             <td>
-                                                <%= @ordenador%>
+                                                <%="#{value}"%>
                                             </td>
                                             <td>
-                                                <%= seller_amount(dados_vendedor, @buscar)%>
+                                                
                                             </td>
                                         </tr>
                                     <%end%>
