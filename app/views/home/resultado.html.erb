@@ -83,19 +83,19 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <%@receptor_ordenador.each do |key, value|%>                                    
+                                    <%@receptor.each do |value|%>                                    
                                         <tr>
                                             <td>
-                                                
+                                                <%=value[1]["id"]%>
                                             </td>
                                             <td>
-                                                <%= "#{key}" %>
+                                                <%=value[1]["name"]%>
                                             </td>
                                             <td>
-                                                <%="#{value}"%>
+                                                <%=value[1]["percent"]%>
                                             </td>
                                             <td>
-                                                
+                                                <%=value[1]["seller_amount"]%>
                                             </td>
                                         </tr>
                                     <%end%>

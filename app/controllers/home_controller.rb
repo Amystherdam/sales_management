@@ -35,16 +35,16 @@ class HomeController < ApplicationController
     @vendedores = @buscar.select("distinct on (seller_code) *")
     #Variavel retorna a soma de vendas no período de @buscar
     @busca_total_vendas = @buscar.sum(:amount)
-    #Criação de um array vazio
-    @receptor_ordenador = {}
+    #Criação de um hash vazio
+    @receptor = {}
     #Início de um laço de teste apartir de @vendedores
-    @vendedores.each do |v|
-      #Array recebe método que retorna o percentual com base em variaveis e duas casas decimais
-      @receptor_ordenador[:"#{v.seller_name}"] = percent_of(seller_amount(v, @buscar), @busca_total_vendas).round(2)      
+    @vendedores.each_with_index do |val, index|
+      #Hash com chave == seller_name = método que retorna o percentual com base em variaveis e duas casas descimais como valor
+      @receptor[:"#{index}"] = {"id" => val.seller_code, "name" => val.seller_name, "percent" => percent_of(seller_amount(val, @buscar), @busca_total_vendas).round(2), "seller_amount" => seller_amount(val, @buscar)}  
     end
-    
-    @receptor_ordenador.sort_by(&:first)
-
+    #Variavel recebe e ordena o hash
+    @receptor_ordenador = receptor.sort_by { |k| sort_order.index(k) }
+    puts "sdfgsdfgsdfgsd"
     puts @receptor_ordenador
 
   end 
