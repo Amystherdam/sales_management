@@ -39,14 +39,18 @@ class HomeController < ApplicationController
     @receptor = {}
     #Início de um laço de teste apartir de @vendedores
     @vendedores.each_with_index do |val, index|
-      #Hash com chave == seller_name = método que retorna o percentual com base em variaveis e duas casas descimais como valor
-      @receptor[:"#{index}"] = {"id" => val.seller_code, "name" => val.seller_name, "percent" => percent_of(seller_amount(val, @buscar), @busca_total_vendas).round(2), "seller_amount" => seller_amount(val, @buscar)}  
+      #Hash com index = valores presentes na variavel @vendedor e cria chaves e valores.
+      @receptor[index] = {"id" => val.seller_code, "name" => val.seller_name, "percent" => percent_of(seller_amount(val, @buscar), @busca_total_vendas).round(2), "seller_amount" => seller_amount(val, @buscar)}    
+      @a = @receptor[index]["percent"]
+      @b = @a
+       
     end
-    #Variavel recebe e ordena o hash
-    @receptor_ordenador = receptor.sort_by { |k| sort_order.index(k) }
-    puts "sdfgsdfgsdfgsd"
-    puts @receptor_ordenador
-
+    if @a>@b
+      puts @a
+    else
+      puts @b
+    end
+    
   end 
 
 end
