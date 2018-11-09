@@ -32,24 +32,50 @@ class HomeController < ApplicationController
     #Variavel recebe consulta onde date_service seja igual aos valores de params(view)
     @buscar = Business.where("date_service >= ? and date_service <= ?", params[:date_initial], params[:date_end])
     #Variavel recebe os vendedores do período de @buscar sem repetição para poder rankear
-    @vendedores = @buscar.select("distinct on (seller_code) *")
+    @vendedores_code = @buscar.distinct.pluck(:seller_code)
+    # puts @vendedores
     #Variavel retorna a soma de vendas no período de @buscar
     @busca_total_vendas = @buscar.sum(:amount)
-    #Criação de um hash vazio
-    @receptor = {}
-    #Início de um laço de teste apartir de @vendedores
-    @vendedores.each_with_index do |val, index|
-      #Hash com index = valores presentes na variavel @vendedor e cria chaves e valores.
-      @receptor[index] = {"id" => val.seller_code, "name" => val.seller_name, "percent" => percent_of(seller_amount(val, @buscar), @busca_total_vendas).round(2), "seller_amount" => seller_amount(val, @buscar)}    
-      @a = @receptor[index]["percent"]
-      @b = @a
-       
+    
+    @vendedores = []
+    @vendedores_code.each do |code|
+      vendedor = Business.where(seller_code: code).last
+      vendedor.amount = seller_amount(vendedor, @buscar)
+      @vendedores << vendedor if vendedor
+
     end
-    if @a>@b
-      puts @a
-    else
-      puts @b
-    end
+    @vendedores = @vendedores.sort {|a, b | b.amount <=> a.amount}
+
+    # #Criação de um hash vazio
+    # @receptor = {}
+    # #Início de um laço de teste apartir de @vendedores
+    # @vendedores.each_with_index do |val, index|
+    #   #Hash com index = valores presentes na variavel @vendedor e cria chaves e valores.
+ # percent_of(seller_amount(val, @buscar), @busca_total_vendas).round(2), "seller_amount" => seller_amount(val, @buscar)}    
+    # end
+    # puts "------------------------------Resultado------------------------------"
+    # @receptor.each do |hash|
+    #   puts hash[1]["percent"]
+    # end
+    # @receptor.length
+    # puts "---------------------------------------------------------------------"
+
+
+
+
+
+
+
+    #if @a<@b
+     # puts "#{@a} Valor de A"
+    #else
+     # puts "#{@b} Valor de B"
+    #end
+   # if @receptor[index]["percent"] > @receptor[index + 1]["percent"]
+    #  puts  "#{@receptor[index]["percent"]} Isso é a posição 0"
+   # else
+    #  puts  "#{@receptor[index + 1]["percent"]} Isso é a posição 1"
+   # end
     
   end 
 

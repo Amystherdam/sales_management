@@ -62,7 +62,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-primary">
-                        <h4 class="card-title ">Vendedores</h4>
+                        <h4 class="card-title ">vendedor</h4>
                         <p class="card-category">Ranking de Faturamentos</p>
                     </div>
                     <div class="card-body">
@@ -83,19 +83,19 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <%@receptor.each do |value|%>                                    
+                                    <%@vendedores.each do |vendedor|%>                                    
                                         <tr>
                                             <td>
-                                                <%=value[1]["id"]%>
+                                                <%=vendedor.seller_code%>
                                             </td>
                                             <td>
-                                                <%=value[1]["name"]%>
+                                                <%=vendedor.seller_name%>
                                             </td>
                                             <td>
-                                                <%=value[1]["percent"]%>
+                                                <%=percent_of(seller_amount(vendedor, @buscar), @busca_total_vendas).round(2)%>
                                             </td>
                                             <td>
-                                                <%=value[1]["seller_amount"]%>
+                                                <%=vendedor.amount%>
                                             </td>
                                         </tr>
                                     <%end%>
@@ -111,7 +111,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-primary">
-                        <h4 class="card-title ">Vendedores</h4>
+                        <h4 class="card-title ">vendedor</h4>
                         <p class="card-category">Ranking de Orçamentos</p>
                     </div>
                     <div class="card-body">
