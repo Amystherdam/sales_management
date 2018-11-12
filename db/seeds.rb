@@ -9,7 +9,7 @@ Member.create(email: "lucas10@gmail.com", password: "123abc")
 
 Business.create([
     {branch: 1, service_number: 578567, seller_code: 456765456, seller_name: "Hershell", client_code: 1932, client_name: "Cecomil", product_code: 24313, product_description: "Computador Lenovo", payment_type: 
-    "Orcamento", request_number: 9284234, product_quantity: 3, product_value: 2000, product_discount: 0, amount: 7000, business_situation: "Em Orçamento", date_service: "2018-10-01", date_transmission_note: "2018-10-10"},
+    "Orçamento", request_number: 9284234, product_quantity: 3, product_value: 2000, product_discount: 0, amount: 7000, business_situation: "Em Orçamento", date_service: "2018-10-01", date_transmission_note: "2018-10-10"},
     
     {branch: 1, service_number: 568567, seller_code: 456765456, seller_name: "Hershell", client_code: 194, client_name: "Ibyte", product_code: 21343, product_description: "Tablet Samsung", payment_type: 
     "Debito", request_number: 924234, product_quantity: 2, product_value: 800, product_discount: 0, amount: 1600, business_situation: "Emissão Liberada", date_service: "2018-10-12", date_transmission_note: "2018-10-14"},
@@ -27,7 +27,7 @@ Business.create([
     "Boleto", request_number: 9834234, product_quantity: 3, product_value: 600, product_discount: 0, amount: 1800, business_situation: "Nota Fical Emitida", date_service: "2018-10-11", date_transmission_note: "2018-10-13"},
 
     {branch: 2, service_number: 657453, seller_code: 345234, seller_name: "Michone", client_code: 1992, client_name: "IBM", product_code: 2513, product_description: "HDD Externo Exbom", payment_type: 
-    "Orcamento", request_number: 934234, product_quantity: 1, product_value: 340, product_discount: 0, amount: 340, business_situation: "Em Orçamento", date_service: "2018-10-10", date_transmission_note: "2018-10-15"},
+    "Orçamento", request_number: 934234, product_quantity: 1, product_value: 340, product_discount: 0, amount: 340, business_situation: "Em Orçamento", date_service: "2018-10-10", date_transmission_note: "2018-10-15"},
 
     {branch: 3, service_number: 3333333, seller_code: 2341233, seller_name: "Lori", client_code: 1912, client_name: "R7 Informática", product_code: 28713, product_description: "Fone Razer", payment_type: 
     "Boleto", request_number: 92423554, product_quantity: 2, product_value: 450, product_discount: 0, amount: 900, business_situation: "Cancelada", date_service: "2018-10-10", date_transmission_note: "2018-10-30"}

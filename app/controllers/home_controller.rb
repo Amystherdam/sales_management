@@ -37,45 +37,16 @@ class HomeController < ApplicationController
     #Variavel retorna a soma de vendas no período de @buscar
     @busca_total_vendas = @buscar.sum(:amount)
     
+    @buscar_sem_orcamento = @buscar.where.not(payment_type: "Orçamento")
+
     @vendedores = []
     @vendedores_code.each do |code|
-      vendedor = Business.where(seller_code: code).last
+      vendedor = Business.where(seller_code: code).first
       vendedor.amount = seller_amount(vendedor, @buscar)
       @vendedores << vendedor if vendedor
-
     end
     @vendedores = @vendedores.sort {|a, b | b.amount <=> a.amount}
 
-    # #Criação de um hash vazio
-    # @receptor = {}
-    # #Início de um laço de teste apartir de @vendedores
-    # @vendedores.each_with_index do |val, index|
-    #   #Hash com index = valores presentes na variavel @vendedor e cria chaves e valores.
- # percent_of(seller_amount(val, @buscar), @busca_total_vendas).round(2), "seller_amount" => seller_amount(val, @buscar)}    
-    # end
-    # puts "------------------------------Resultado------------------------------"
-    # @receptor.each do |hash|
-    #   puts hash[1]["percent"]
-    # end
-    # @receptor.length
-    # puts "---------------------------------------------------------------------"
-
-
-
-
-
-
-
-    #if @a<@b
-     # puts "#{@a} Valor de A"
-    #else
-     # puts "#{@b} Valor de B"
-    #end
-   # if @receptor[index]["percent"] > @receptor[index + 1]["percent"]
-    #  puts  "#{@receptor[index]["percent"]} Isso é a posição 0"
-   # else
-    #  puts  "#{@receptor[index + 1]["percent"]} Isso é a posição 1"
-   # end
     
   end 
 
