@@ -44,7 +44,7 @@
                                                 <%= dados_venda.payment_type %>
                                             </td>
                                             <td>
-                                                <%= link_to   detalhes_path do  %> 
+                                                <%= link_to detalhes_path do  %> 
                                                     <p>Detalhes</p>
                                                 <%end%>
                                             </td>
@@ -62,7 +62,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-primary">
-                        <h4 class="card-title ">vendedor</h4>
+                        <h4 class="card-title ">Vendedores</h4>
                         <p class="card-category">Ranking de Faturamentos</p>
                     </div>
                     <div class="card-body">
@@ -76,10 +76,10 @@
                                         Name
                                     </th>
                                     <th>
-                                        Percentual do Total
+                                        Percentual do Total em (%)
                                     </th>
                                     <th>
-                                        Faturamento Obtido
+                                        Faturamento Obtido em (R$)
                                     </th>
                                 </thead>
                                 <tbody>
@@ -92,7 +92,7 @@
                                                 <%=vendedor.seller_name%>
                                             </td>
                                             <td>
-                                                <%=percent_of(seller_amount(vendedor, @buscar), @busca_total_vendas).round(2)%>
+                                                <%=percent_of(seller_amount(vendedor, @buscar_sem_orcamento), @busca_total_vendas_sem_orcamento).round(2)%>
                                             </td>
                                             <td>
                                                 <%=vendedor.amount%>
@@ -111,7 +111,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-primary">
-                        <h4 class="card-title ">vendedor</h4>
+                        <h4 class="card-title ">Vendedores</h4>
                         <p class="card-category">Ranking de Orçamentos</p>
                     </div>
                     <div class="card-body">
@@ -125,55 +125,29 @@
                                         Name
                                     </th>
                                     <th>
-                                        Percentual do Total
+                                        Percentual do Total em (R$)
                                     </th>
                                     <th>
-                                        Faturamento Obtido
+                                        Orçamento Obtido em (R$)
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            00000700
-                                        </td>
-                                        <td>
-                                            Fulano
-                                        </td>
-                                        <td>
-                                            20%
-                                        </td>
-                                        <td>
-                                            1.285.00
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            00000700
-                                        </td>
-                                        <td>
-                                            Fulano
-                                        </td>
-                                        <td>
-                                            20%
-                                        </td>
-                                        <td>
-                                            1.285.00
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            00000700
-                                        </td>
-                                        <td>
-                                            Fulano
-                                        </td>
-                                        <td>
-                                            20%
-                                        </td>
-                                        <td>
-                                            1.285.00
-                                        </td>
-                                    </tr>
+                                    <%@vendedor_tipo_orcamento.each do |vendedor|%>                                    
+                                        <tr>
+                                            <td>
+                                                <%=vendedor.seller_code%>
+                                            </td>
+                                            <td>
+                                                <%=vendedor.seller_name%>
+                                            </td>
+                                            <td>
+                                                <%=percent_of(seller_amount(vendedor, @buscar_de_orcamento), @busca_total_vendas_de_orcamento).round(2)%>
+                                            </td>
+                                            <td>
+                                                <%=vendedor.amount%>
+                                            </td>
+                                        </tr>
+                                    <%end%>
                                 </tbody>
                             </table>
                         </div>

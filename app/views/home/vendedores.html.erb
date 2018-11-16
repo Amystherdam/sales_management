@@ -19,7 +19,7 @@
                         </th>
                         </thead>
                         <tbody>
-                            <% @dados_vendedores.each do |informacoes_vendedores|%>
+                            <% @dados_vendedores.order(:seller_name).each do |informacoes_vendedores|%>
                                 <tr>
                                     <td>
                                         <%= informacoes_vendedores.seller_code%>
