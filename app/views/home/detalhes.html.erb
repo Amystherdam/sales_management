@@ -31,22 +31,25 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            PC de Rico
-                                        </td>
-                                        <td class="text-primary">
-                                            R$36,738
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            PC de Rico
-                                        </td>
-                                        <td class="text-primary">
-                                        R$36,738
-                                        </td>
-                                    </tr>
+                                    <% @numero_servico.each do |num_serv|%>
+                                        <tr>
+                                            <td>
+                                                <%= num_serv.product_description %>
+                                            </td>
+                                            <td>
+                                                <%= num_serv.product_value %>
+                                            </td>
+                                            <td>
+                                                <%= num_serv.product_quantity %>
+                                            </td>
+                                            <td>
+                                                <%= num_serv.product_discount %>
+                                            </td>
+                                            <td>
+                                                <%= num_serv.business_situation %>
+                                            </td>
+                                        </tr>
+                                    <%end%>
                                 </tbody>
                             </table>
                         </div>

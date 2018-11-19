@@ -11,7 +11,7 @@ class HomeController < ApplicationController
   end
 
   def detalhes
-    
+    @numero_servico = Business.where(service_number: params[:service_number])
   end
 
   #Método trás soma das vendas que um vendedor fez
@@ -27,7 +27,8 @@ class HomeController < ApplicationController
   def resultado 
     
     @buscar = Business.where("date_service >= ? and date_service <= ?", params[:date_initial], params[:date_end])
-    
+
+    @buscar_numero_servico = @buscar.distinct.pluck(:service_number)
     @vendedores_code = @buscar.distinct.pluck(:seller_code)
 
     @busca_total_vendas_sem_orcamento = @buscar.where.not(payment_type: "Orçamento").sum(:amount)
@@ -36,8 +37,16 @@ class HomeController < ApplicationController
     @buscar_sem_orcamento = @buscar.where.not(payment_type: "Orçamento")
     @buscar_de_orcamento = @buscar.where("payment_type = 'Orçamento'")
 
+    @vendas = []
     @vendedor_tipo_orcamento = []
     @vendedores = []
+
+    @buscar_numero_servico.each do |num_serv|
+      numero_servico = Business.where(service_number: num_serv).last
+      numero_servico.amount = Business.where(service_number: num_serv).sum(:amount)
+
+      @vendas << numero_servico if numero_servico
+    end
 
     @vendedores_code.each do |code|
       vendedor_tipo_faturamento = Business.where(seller_code: code).last
@@ -55,7 +64,7 @@ class HomeController < ApplicationController
       @vendedor_tipo_orcamento << vendedor_tipo_orcamento if vendedor_tipo_orcamento
     end
     @vendedor_tipo_orcamento = @vendedor_tipo_orcamento.sort {|a, b | b.amount <=> a.amount}
-    
+
   end 
 
 end

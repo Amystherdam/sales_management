@@ -10,12 +10,18 @@ Member.create(email: "lucas10@gmail.com", password: "123abc")
 Business.create([
     {branch: 1, service_number: 578567, seller_code: 456765456, seller_name: "Carlos", client_code: 1932, client_name: "Cecomil", product_code: 24313, product_description: "Computador Lenovo", payment_type: 
     "Orçamento", request_number: 9284234, product_quantity: 3, product_value: 2000, product_discount: 0, amount: 7000, business_situation: "Em Orçamento", date_service: "2018-10-01", date_transmission_note: "2018-10-10"},
+
+    {branch: 1, service_number: 578567, seller_code: 456765456, seller_name: "Carlos", client_code: 1932, client_name: "Cecomil", product_code: 243123, product_description: "Ipad", payment_type: 
+    "Orçamento", request_number: 9284234, product_quantity: 1, product_value: 950, product_discount: 0, amount: 950, business_situation: "Em Orçamento", date_service: "2018-10-01", date_transmission_note: "2018-10-10"},
     
     {branch: 1, service_number: 568567, seller_code: 456765456, seller_name: "Carlos", client_code: 194, client_name: "Ibyte", product_code: 21343, product_description: "Tablet Samsung", payment_type: 
     "Debito", request_number: 924234, product_quantity: 2, product_value: 800, product_discount: 0, amount: 1600, business_situation: "Emissão Liberada", date_service: "2018-10-12", date_transmission_note: "2018-10-14"},
 
     {branch: 1, service_number: 2333333, seller_code: 456765456, seller_name: "Carlos", client_code: 1952, client_name: "Casa Civil", product_code: 214563, product_description: "Notebook Acer", payment_type: 
-    "Debito", request_number: 9283424, product_quantity: 5, product_value: 1800, product_discount: 0, amount: 9000, business_situation: "Cancelada", date_service: "2018-10-14", date_transmission_note: "2018-10-31"},
+    "Debito", request_number: 9283424, product_quantity: 1, product_value: 1800, product_discount: 0, amount: 1800, business_situation: "Cancelada", date_service: "2018-10-14", date_transmission_note: "2018-10-31"},
+
+    {branch: 1, service_number: 2333333, seller_code: 456765456, seller_name: "Carlos", client_code: 1952, client_name: "Casa Civil", product_code: 2134563, product_description: "Smartphone Lenovo Vibe K5", payment_type: 
+    "Debito", request_number: 9283424, product_quantity: 2, product_value: 600, product_discount: 0, amount: 1200, business_situation: "Cancelada", date_service: "2018-10-14", date_transmission_note: "2018-10-31"},
             
     {branch: 1, service_number: 22222222, seller_code: 456765456, seller_name: "Carlos", client_code: 1692, client_name: "Assembleia", product_code: 22313, product_description: "Processador i5", payment_type: 
     "Boleto", request_number: 9283423, product_quantity: 6, product_value: 850, product_discount: 0, amount: 5100, business_situation: "Nota Fical Emitida", date_service: "2018-10-05", date_transmission_note: "2018-10-20"},

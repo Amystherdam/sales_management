@@ -13,6 +13,9 @@
                             <table class="table">
                                 <thead class=" text-primary">
                                     <th>
+                                        Número do Serviço
+                                    </th>
+                                    <th>
                                         Empresa
                                     </th>
                                     <th>
@@ -29,22 +32,25 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <% @buscar.each do |dados_venda|%>
+                                    <% @vendas.each do |venda|%>
                                         <tr>
                                             <td>
-                                                <%= dados_venda.client_name %>
+                                                <%= venda.service_number %>
+                                            </td>
+                                            <td>
+                                                <%= venda.client_name %>
                                             </td>
                                             <td class="text-primary">
-                                                R$<%= dados_venda.amount %>
+                                                R$<%= venda.amount %>
                                             </td>
                                             <td>
-                                                <%= dados_venda.seller_name %>
+                                                <%= venda.seller_name %>
                                             </td>
                                             <td>
-                                                <%= dados_venda.payment_type %>
+                                                <%= venda.payment_type %>
                                             </td>
                                             <td>
-                                                <%= link_to detalhes_path do  %> 
+                                                <%= link_to detalhes_path(venda.service_number) do  %> 
                                                     <p>Detalhes</p>
                                                 <%end%>
                                             </td>
