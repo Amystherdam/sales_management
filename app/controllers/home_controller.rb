@@ -12,6 +12,11 @@ class HomeController < ApplicationController
 
   def detalhes
     @numero_servico = Business.where(service_number: params[:service_number])
+    @buscar_numero_servico = @numero_servico.distinct.pluck(:service_number)
+  end
+
+  def busca_por_servico
+
   end
 
   #Método trás soma das vendas que um vendedor fez
@@ -26,23 +31,24 @@ class HomeController < ApplicationController
 
   def resultado 
     
-    @buscar = Business.where("date_service >= ? and date_service <= ?", params[:date_initial], params[:date_end])
+    @buscar_por_data = Business.where("date_service >= ? and date_service <= ?", params[:date_initial], params[:date_end])
+    @buscar_por_servico
 
-    @buscar_numero_servico = @buscar.distinct.pluck(:service_number)
-    @vendedores_code = @buscar.distinct.pluck(:seller_code)
+    @buscar_numero_servico = @buscar_por_data.distinct.pluck(:service_number)
+    @vendedores_code = @buscar_por_data.distinct.pluck(:seller_code)
 
-    @busca_total_vendas_sem_orcamento = @buscar.where.not(payment_type: "Orçamento").sum(:amount)
-    @busca_total_vendas_de_orcamento = @buscar.where("payment_type = 'Orçamento'").sum(:amount)
+    @busca_total_vendas_sem_orcamento = @buscar_por_data.where.not(payment_type: "Orçamento").sum(:amount)
+    @busca_total_vendas_de_orcamento = @buscar_por_data.where("payment_type = 'Orçamento'").sum(:amount)
     
-    @buscar_sem_orcamento = @buscar.where.not(payment_type: "Orçamento")
-    @buscar_de_orcamento = @buscar.where("payment_type = 'Orçamento'")
+    @buscar_sem_orcamento = @buscar_por_data.where.not(payment_type: "Orçamento")
+    @buscar_de_orcamento = @buscar_por_data.where("payment_type = 'Orçamento'")
 
     @vendas = []
     @vendedor_tipo_orcamento = []
     @vendedores = []
 
     @buscar_numero_servico.each do |num_serv|
-      numero_servico = Business.where(service_number: num_serv).last
+      numero_servico = Business.where(service_number: num_serv).first
       numero_servico.amount = Business.where(service_number: num_serv).sum(:amount)
 
       @vendas << numero_servico if numero_servico

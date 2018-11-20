@@ -1,6 +1,6 @@
 module ApplicationHelper
     def seller_amount(vendedor, buscar)
-        buscar.where(seller_code: vendedor.seller_code).sum(:amount)
+        @buscar_por_data.where(seller_code: vendedor.seller_code).sum(:amount)
     end
 
     def percent_of(vendas_vendedor, total_vendas)

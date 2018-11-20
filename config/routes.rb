@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get 'index', to: 'home#index'
   get 'vendedores', to: 'home#vendedores'
   get 'detalhes/:service_number' => "home#detalhes", as: "detalhes"  
-  get 'resultado' => "home#resultado", as: "resultado"  
+  get 'resultado' => "home#resultado", as: "resultado"
+  get 'servico' => "home#busca_por_servico"  
   devise_for :members
   
   root 'home#index'
