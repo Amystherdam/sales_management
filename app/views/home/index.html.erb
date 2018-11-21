@@ -10,7 +10,7 @@
                 <div class="card">
                     <div class="card-header card-header-primary">
                         <h4 class="card-title ">O que houve nesse período</h4>
-                        <p class="card-category"> Informações de contatos comerciais</p>
+                        <p class="card-category"> Consulta por data</p>
                     </div>
                     <div class="card-content">
                         <%= form_with method: :get, url: resultado_path, local: true do |f| %>
@@ -37,15 +37,64 @@
                                         <input type="hidden" id="dtp_input2" value="" />
                                     </div>
                                 </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary pull-right">INICIAR</button>
+                            <div class="clearfix"></div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">O que houve nesse período</h4>
+                        <p class="card-category"> Consulta por numero de serviço</p>
+                    </div>
+                    <div class="card-content">
+                        <%= form_with method: :get, url: servico_path, local: true do |f| %>
+                            <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group label-floating">
                                        <label for="dtp_input2" class="control-label">Numero do Serviço</label>
                                         
-                                        <%= f.text_field :number_service, label: false, class: "form-control"%>
+                                        <%= f.text_field :service_number, label: false, class: "form-control"%>
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                                         
                                         <input type="hidden" id="dtp_input2" value="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary pull-right">INICIAR</button>
+                            <div class="clearfix"></div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">O que houve nesse período</h4>
+                        <p class="card-category"> Consulta por estado do negócio</p>
+                    </div>
+                    <div class="card-content">
+                        <%= form_with method: :get, url: estado_path, local: true do |f| %>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                       <label for="dtp_input2" class="control-label">Estado do negócio: </label>
+                                        <%=f.select(:business_situation, options_for_select([['Cancelada'],['Em Orçamento'], ['Nota Fical Emitida'], ['Cancelada'],['Emissão Liberada']]))%>
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                        
+                                        <input type="hidden" id="dtp_input2" value="" />
+
                                     </div>
                                 </div>
                             </div>

@@ -16,7 +16,30 @@ class HomeController < ApplicationController
   end
 
   def busca_por_servico
+    @buscar_por_servico = []
 
+    @numero_servico = Business.where("service_number = ?", params[:service_number]).distinct.pluck(:service_number)
+
+    @numero_servico.each do |num_serv|
+      numero_servico = Business.where(service_number: num_serv).first
+      numero_servico.amount = Business.where(service_number: num_serv).sum(:amount)
+
+      @buscar_por_servico << numero_servico if numero_servico
+    end
+  end
+
+  def buscar_por_estado
+    @buscar_por_estado = []
+
+    @estado = Business.where("business_situation = ?", params[:business_situation])
+    @busca_estado_service_number = @estado.distinct.pluck(:service_number)
+
+    @busca_estado_service_number.each do |serv_num|
+      estado_negocio = Business.where(service_number: serv_num).first
+      estado_negocio.amount = Business.where(service_number: serv_num).sum(:amount)
+
+      @buscar_por_estado << estado_negocio if estado_negocio
+    end
   end
 
   #Método trás soma das vendas que um vendedor fez
@@ -32,12 +55,13 @@ class HomeController < ApplicationController
   def resultado 
     
     @buscar_por_data = Business.where("date_service >= ? and date_service <= ?", params[:date_initial], params[:date_end])
-    @buscar_por_servico
 
     @buscar_numero_servico = @buscar_por_data.distinct.pluck(:service_number)
     @vendedores_code = @buscar_por_data.distinct.pluck(:seller_code)
 
     @busca_total_vendas_sem_orcamento = @buscar_por_data.where.not(payment_type: "Orçamento").sum(:amount)
+    puts "--------------------------------------------------------------------------------------"
+    puts @busca_total_vendas_sem_orcamento
     @busca_total_vendas_de_orcamento = @buscar_por_data.where("payment_type = 'Orçamento'").sum(:amount)
     
     @buscar_sem_orcamento = @buscar_por_data.where.not(payment_type: "Orçamento")

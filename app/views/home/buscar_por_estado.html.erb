@@ -32,25 +32,25 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <% @buscar_por_servico.each do |servico|%>
+                                    <% @buscar_por_estado.each do |estado|%>
                                         <tr>
                                             <td>
-                                                <%= servico.service_number %>
+                                                <%= estado.service_number %>
                                             </td>
                                             <td>
-                                                <%= servico.client_name %>
+                                                <%= estado.client_name %>
                                             </td>
                                             <td class="text-primary">
-                                                R$<%= servico.amount %>
+                                                R$<%= estado.amount %>
                                             </td>
                                             <td>
-                                                <%= servico.seller_name %>
+                                                <%= estado.seller_name %>
                                             </td>
                                             <td>
-                                                <%= servico.payment_type %>
+                                                <%= estado.payment_type %>
                                             </td>
                                             <td>
-                                                <%= link_to detalhes_path(servico.service_number) do  %> 
+                                                <%= link_to detalhes_path(estado.service_number) do  %> 
                                                     <p>Detalhes</p>
                                                 <%end%>
                                             </td>
@@ -62,6 +62,6 @@
                     </div>
                 </div>
             </div>
-        </div>     
+        </div>        
     </div>
 </div>
