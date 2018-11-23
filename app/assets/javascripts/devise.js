@@ -4,7 +4,3 @@
 //= require vendor/select2/select2.min.js
 //= require vendor/tilt/tilt.jquery.min.js
 //= require js.1/main.js
-
-$('.js-tilt').tilt({
-    scale: 1.1
-})

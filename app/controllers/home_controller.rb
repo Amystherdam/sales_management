@@ -60,8 +60,6 @@ class HomeController < ApplicationController
     @vendedores_code = @buscar_por_data.distinct.pluck(:seller_code)
 
     @busca_total_vendas_sem_orcamento = @buscar_por_data.where.not(payment_type: "Orçamento").sum(:amount)
-    puts "--------------------------------------------------------------------------------------"
-    puts @busca_total_vendas_sem_orcamento
     @busca_total_vendas_de_orcamento = @buscar_por_data.where("payment_type = 'Orçamento'").sum(:amount)
     
     @buscar_sem_orcamento = @buscar_por_data.where.not(payment_type: "Orçamento")
@@ -70,6 +68,7 @@ class HomeController < ApplicationController
     @vendas = []
     @vendedor_tipo_orcamento = []
     @vendedores = []
+    @percent = []
 
     @buscar_numero_servico.each do |num_serv|
       numero_servico = Business.where(service_number: num_serv).first
@@ -78,10 +77,14 @@ class HomeController < ApplicationController
       @vendas << numero_servico if numero_servico
     end
 
+    puts "--------------------------------------------------------------------------"
     @vendedores_code.each do |code|
-      vendedor_tipo_faturamento = Business.where(seller_code: code).last
+      vendedor_tipo_faturamento = Business.where(seller_code: code).first
       vendedor_tipo_faturamento.amount = seller_amount(vendedor_tipo_faturamento, @buscar_sem_orcamento)
-      
+      @percent = percent_of(seller_amount(vendedor_tipo_faturamento, @buscar_sem_orcamento), @busca_total_vendas_sem_orcamento).round(2)
+
+      puts @percent
+
       @vendedores << vendedor_tipo_faturamento if vendedor_tipo_faturamento
       
     end
