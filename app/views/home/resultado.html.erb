@@ -98,7 +98,7 @@
                                                 <%=vendedor.seller_name%>
                                             </td>
                                             <td>
-                                                <%=@percent%>
+                                                <%=vendedor.product_value%>
                                             </td>
                                             <td>
                                                 <%=vendedor.amount%>
@@ -138,19 +138,19 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <%@vendedor_tipo_orcamento.each do |vendedor|%>                                    
+                                    <%@vendedor_tipo_orcamento.each do |vendedor_orc|%>                                    
                                         <tr>
                                             <td>
-                                                <%=vendedor.seller_code%>
+                                                <%=vendedor_orc.seller_code%>
                                             </td>
                                             <td>
-                                                <%=vendedor.seller_name%>
+                                                <%=vendedor_orc.seller_name%>
                                             </td>
                                             <td>
-                                                <%=percent_of(seller_amount(vendedor, @buscar_de_orcamento), @busca_total_vendas_de_orcamento).round(2)%>
+                                                <%=vendedor_orc.product_value%>
                                             </td>
                                             <td>
-                                                <%=vendedor.amount%>
+                                                <%=vendedor_orc.amount%>
                                             </td>
                                         </tr>
                                     <%end%>

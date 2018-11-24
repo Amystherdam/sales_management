@@ -68,22 +68,22 @@ class HomeController < ApplicationController
     @vendas = []
     @vendedor_tipo_orcamento = []
     @vendedores = []
-    @percent = []
 
     @buscar_numero_servico.each do |num_serv|
       numero_servico = Business.where(service_number: num_serv).first
-      numero_servico.amount = Business.where(service_number: num_serv).sum(:amount)
+      numero_servico.amount = Business.where(service_number: num_serv).sum(:amount).round(2)
 
       @vendas << numero_servico if numero_servico
     end
 
     puts "--------------------------------------------------------------------------"
+    puts @busca_total_vendas_de_orcamento
     @vendedores_code.each do |code|
       vendedor_tipo_faturamento = Business.where(seller_code: code).first
       vendedor_tipo_faturamento.amount = seller_amount(vendedor_tipo_faturamento, @buscar_sem_orcamento)
-      @percent = percent_of(seller_amount(vendedor_tipo_faturamento, @buscar_sem_orcamento), @busca_total_vendas_sem_orcamento).round(2)
+      vendedor_tipo_faturamento.product_value = percent_of(seller_amount(vendedor_tipo_faturamento, @buscar_sem_orcamento), @busca_total_vendas_sem_orcamento).round(2)
 
-      puts @percent
+      
 
       @vendedores << vendedor_tipo_faturamento if vendedor_tipo_faturamento
       
@@ -93,6 +93,7 @@ class HomeController < ApplicationController
     @vendedores_code.each do |code|
       vendedor_tipo_orcamento = Business.where(seller_code: code).last
       vendedor_tipo_orcamento.amount = seller_amount(vendedor_tipo_orcamento, @buscar_de_orcamento)
+      vendedor_tipo_orcamento.product_value = percent_of(seller_amount(vendedor_tipo_orcamento, @buscar_de_orcamento), @busca_total_vendas_de_orcamento).round(2)
 
       @vendedor_tipo_orcamento << vendedor_tipo_orcamento if vendedor_tipo_orcamento
     end

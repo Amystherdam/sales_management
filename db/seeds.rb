@@ -36,5 +36,14 @@ Business.create([
     "Orçamento", request_number: 934234, product_quantity: 1, product_value: 340, product_discount: 0, amount: 340, business_situation: "Em Orçamento", date_service: "2018-10-10", date_transmission_note: "2018-10-15"},
 
     {branch: 3, service_number: 3333333, seller_code: 2341233, seller_name: "Rose", client_code: 1912, client_name: "R7 Informática", product_code: 28713, product_description: "Fone Razer", payment_type: 
-    "Orçamento", request_number: 92423554, product_quantity: 2, product_value: 450, product_discount: 0, amount: 900, business_situation: "Cancelada", date_service: "2018-10-10", date_transmission_note: "2018-10-30"}
+    "Dinheiro", request_number: 92423554, product_quantity: 2, product_value: 450, product_discount: 0, amount: 900, business_situation: "Nota Fical Emitida", date_service: "2018-10-10", date_transmission_note: "2018-10-31"},
+
+    {branch: 3, service_number: 33133333, seller_code: 2341233, seller_name: "Rose", client_code: 111912, client_name: "Oracle", product_code: 2888713, product_description: "Tablet Samsung", payment_type: 
+    "Orçamento", request_number: 24213554, product_quantity: 10, product_value: 680, product_discount: 0, amount: 6800, business_situation: "Em Orçamento", date_service: "2018-10-05", date_transmission_note: "2018-10-30"},
+
+    {branch: 3, service_number: 3333333, seller_code: 2341233, seller_name: "Rose", client_code: 1912, client_name: "R7 Informática", product_code: 2871773, product_description: "Mouse Pad", payment_type: 
+    "Dinheiro", request_number: 92423554, product_quantity: 1, product_value: 3.50, product_discount: 0, amount: 3.55, business_situation: "Nota Fical Emitida", date_service: "2018-10-10", date_transmission_note: "2018-10-31"},
+
+    {branch: 3, service_number: 33334333, seller_code: 2341233, seller_name: "Rose", client_code: 19412, client_name: "IOAC", product_code: 2811713, product_description: "Teclado Pise", payment_type: 
+    "Orçamento", request_number: 924223554, product_quantity: 2, product_value: 60, product_discount: 0, amount: 120, business_situation: "Em Orçamento", date_service: "2018-10-03", date_transmission_note: "2018-10-29"}
 ])
