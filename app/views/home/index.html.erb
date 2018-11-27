@@ -18,8 +18,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group label-floating">
                                        <label for="dtp_input1" class="control-label">Data inicial</label>
-                                        <div class="input-group date form_datetime" data-date-format="dd mm yyyy - hh:ii" data-link-field="dtp_input1">
-                                            <%= f.datetime_field :date_initial, type: :datetime, label: false, class: "form-control"%>
+                                        <div class="input-group date form_datetime" data-link-field="dtp_input1">
+                                            <%= f.text_field :date_initial, class: "form-control"%>
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                                         </div>
@@ -29,8 +29,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group label-floating">
                                        <label for="dtp_input2" class="control-label">Data final</label>
-                                        <div class="input-group date form_datetime" data-date-format="dd mm yyyy - hh:ii" data-link-field="dtp_input2">
-                                            <%= f.datetime_field :date_end, type: :datetime, label: false, class: "form-control"%>
+                                        <div class="input-group date form_datetime" data-link-field="dtp_input2">
+                                            <%= f.text_field :date_end, class: "form-control"%>
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                                         </div>
