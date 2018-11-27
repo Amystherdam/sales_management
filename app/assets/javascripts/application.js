@@ -13,10 +13,6 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require jquery
-//= require jquery_ujs
-//= require jquery-ui
-//= require jquery.ui.datepicker
 //= require js/core/jquery.min.js
 //= require js/core/popper.min.js
 //= require js/core/bootstrap-material-design.min.js
