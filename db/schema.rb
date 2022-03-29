@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2018_10_23_184621) do
   enable_extension "plpgsql"
 
   create_table "businesses", force: :cascade do |t|
-    t.integer "branch"
+    t.integer "metier"
     t.integer "service_number"
     t.integer "seller_code"
     t.string "seller_name"

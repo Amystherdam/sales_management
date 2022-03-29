@@ -1,7 +1,7 @@
 class CreateBusinesses < ActiveRecord::Migration[5.2]
   def change
     create_table :businesses do |t|
-      t.integer :branch
+      t.integer :metier
       t.integer :service_number
       t.integer :seller_code
       t.string :seller_name

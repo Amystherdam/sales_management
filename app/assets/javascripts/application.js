@@ -12,11 +12,9 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
-//= require js/core/jquery.min.js
-//= require js/core/popper.min.js
-//= require js/core/bootstrap-material-design.min.js
-//= require js/plugins/perfect-scrollbar.jquery.min.js
-//= require js/plugins/bootstrap-notify.js
-//= require js/material-dashboard.js
-//= require js/material-dashboard.min.js
+//= require application/jquery.min.js
+//= require application/popper.min.js
+//= require application/bootstrap-material-design.min.js
+//= require application/perfect-scrollbar.jquery.min.js
+//= require application/bootstrap-notify.js
+//= require application/material-dashboard.min.js

@@ -1,10 +1,9 @@
 /*
  *= require_self
- *= require vendor/bootstrap/css/bootstrap.min.css
- *= require fonts/font-awesome-4.7.0/css/font-awesome.min.css
- *= require vendor/animate/animate.css
- *= require vendor/css-hamburgers/hamburgers.min.css
- *= require vendor/select2/select2.min.css
- *= require css.1/util.css
- *= require css.1/main.css
+ *= require devise/bootstrap.min.css
+ *= require devise/animate.css
+ *= require devise/hamburgers.min.css
+ *= require devise/select2.min.css
+ *= require devise/util.css
+ *= require devise/main.css
 */
